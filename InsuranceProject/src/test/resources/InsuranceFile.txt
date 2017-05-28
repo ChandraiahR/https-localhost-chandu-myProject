@@ -1,0 +1,77 @@
+A Insurance company
+
+having 3 policies::
+=============================================================================================================================
+-- Policy type:
+--------------------
+MB - MoneyBack
+HP - Health Policy
+VH - Vehicle Insurance
+ ============================================================================================================================
+-- Mode of Policy:
+-------------------
+Q -Quarterly
+H - Halfyearly
+Y -Yearly
+==============================================================================================================================
+
+Insurance.txt:
+-------------------
+<policyType>-<Mode of Policy>/<PolicyNumber>-<DATE OF POLICY STARTED>,<ASSURED AMOUNT>,<PAY DATE>, <DUE DATE>
+MB-Q/12345-11121999,Arjun,50000,12-12-2012,13-11-2012
+MB-H/12345-11121999,Arjun,50000,12-12-2012,13-11-2012
+HP-Y/56892-13101998,ram,10000,11-12-2013,10-11-2013
+==============================================================================================================================
+
+conditions
+---------------------------
+1. need to calculate the fine if, PaymentDate > DueDate
+fine to be calculated as below
+ ==============================================================================================================================
+ 
+Quarterly = 1% of assuredAmount
+Halfyearly = 3% of assuredAmount
+Yearly = 5% of assuredAmount
+ ===============================================================================================================================
+2. IF Paydate <= duedate, fine is 0
+ 
+3. validation required for policy number
+- should be 4 digit number
+ 
+ ================================================================================================================================
+ 
+##### Input Formate
+------------------------------------------------
+- will be given in a text file, Read the input from  file as example given below:
+ 
+MB-H/12345-11121999,Arjun,50000,12-12-2012,13-11-2012
+HP-Y/56892-13101998,ram,10000,11-12-2013,10-11-2013
+ 
+FORMAT: Input :::  <policyType>-<Mode of Policy>/<PolicyNumber>-<DATE OF POLICY STARTED>,<ASSURED AMOUNT>,<PAY DATE>, <DUE DATE>
+ 
+ =================================================================================================================================
+ 
+#####  output: should be a map with no duplicates
+Output Formate:
+--------------------------------------------------
+Map<String ,List<InsuranceDetails>>
+{MB :{ H/12345-11121999,Arjun,50000,12-12-2012,205.3},{Q/12345-11121999,Arjun,50000,12-12-2012,205.3}
+ HP : { H/12345-11121999,Arjun,50000,12-12-2012,205.3},{ Q/12345-11121999,Arjun,50000,12-12-2012,205.3}}
+ 
+ public class InsuranceDetails{
+ private String policyType;
+ private String polocyNumber;
+ private String ModeofPolicy;
+ private String DATEOFPOLICYSTARTED;
+ private String ASSUREDAMOUNT;
+ private DATE PAYDATE;
+ private DATE DUEDATE;
+ private int fineAmount;
+ 
+ //Setters and Getters
+ 
+ }
+ 
+
+ 
+FORMAT: outputMap = {policyType : {<policyType>-<Mode of Policy>/<PolicyNumber>-<DATE OF POLICY STARTED>,<ASSURED AMOUNT>,<PAY DATE>,<fine>}}
