@@ -5,6 +5,7 @@ public class FindNumberOfDays {
 
 		String[] pDate = payDate.split("-");
 		String[] dDate = dueDate.split("-");
+		System.out.println();
 
 		int day_of_pDate = Integer.parseInt(pDate[0]);
 		int month_of_pDate = Integer.parseInt(pDate[1]);
