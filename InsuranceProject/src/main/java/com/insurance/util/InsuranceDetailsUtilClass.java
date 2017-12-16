@@ -17,7 +17,7 @@ public class InsuranceDetailsUtilClass {
 	public void getInsuranceDetails(String fileName) {
 
 		try {
-
+			System.out.println("Hello world");
 			BufferedReader br = new BufferedReader(new FileReader(fileName));
 
 			// create three list classsess for three polocyTypes MB,VB,HB
